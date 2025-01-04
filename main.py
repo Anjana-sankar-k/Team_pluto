@@ -3,14 +3,14 @@ from utils import validate_date
 from gemini_api import GeminiAstronomyClient  # Updated import
 
 def main():
-    print("Welcome to the Cool Space Facts Finder!")
+    print("🚀 Welcome to the Cool Space Facts Finder!")
     birth_date = input("Enter your birth date (YYYY-MM-DD): ")
     
     if not validate_date(birth_date):
         print("Invalid date format. Please use YYYY-MM-DD.")
         return
 
-    # Fetch NEO data from NASA API
+    # Fetch and interpret NEO data
     neo_data = fetch_neo_data(birth_date, birth_date)
     if "error" in neo_data:
         print(neo_data["error"])
