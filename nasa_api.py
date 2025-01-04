@@ -21,3 +21,29 @@ def fetch_neo_data(start_date, end_date):
         return response.json()
     else:
         return {"error": f"Failed to fetch NEO data: {response.status_code}"}
+
+def interpret_neo_data(neo_data, date):
+    """
+    Interpret NEO data to make it more engaging and understandable.
+    """
+    near_objects = neo_data.get("near_earth_objects", {}).get(date, [])
+    if not near_objects:
+        return f"No Near-Earth Objects were near Earth on {date}."
+
+    interpretations = []
+    for neo in near_objects:
+        name = neo.get("name", "Unknown")
+        diameter = neo["estimated_diameter"]["meters"]["estimated_diameter_max"]
+        velocity = neo["close_approach_data"][0]["relative_velocity"]["kilometers_per_hour"]
+        miss_distance = neo["close_approach_data"][0]["miss_distance"]["kilometers"]
+        hazardous = "Yes" if neo["is_potentially_hazardous_asteroid"] else "No"
+
+        interpretations.append(
+            f"Asteroid Name: {name}\n"
+            f"- Diameter: {diameter:.2f} meters\n"
+            f"- Velocity: {float(velocity):,.2f} km/h\n"
+            f"- Miss Distance: {float(miss_distance):,.2f} km\n"
+            f"- Potentially Hazardous: {hazardous}\n"
+            f"- Fun Fact: {'This asteroid passed closer to Earth than the Moon!' if float(miss_distance) < 384400 else 'This asteroid passed at a safe distance from Earth.'}"
+        )
+    return "\n".join(interpretations)
