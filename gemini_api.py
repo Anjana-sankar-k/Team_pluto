@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from datetime import datetime
 
 class GeminiAstronomyClient:
-    """Client for fetching celestial information using Google's Gemini AI."""
+    # """Client for fetching celestial information using Google's Gemini AI."""
     
     def __init__(self):
         # Load environment variables
