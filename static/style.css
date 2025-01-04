@@ -1,0 +1,151 @@
+/* Custom Styles */
+body {
+    background-color: #0d1117; /* Dark mode background */
+    color: #c9d1d9; /* Light text for contrast */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2 {
+    color: #58a6ff; /* Cool blue for headers */
+    font-weight: bold;
+}
+
+.container {
+    margin-top: 100px; /* Center content vertically */
+}
+
+.card {
+    background-color: #161b22; /* Card background for dark mode */
+    border: none;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #58a6ff; /* Consistent header color */
+}
+
+.card p {
+    color: #8b949e; /* Subtle text color */
+}
+
+.alert {
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    background-color: #ff4d4d; /* Red background for error */
+    color: #fff; /* White text for error messages */
+}
+
+.btn-primary {
+    background-color: #238636; /* Vibrant green for primary action */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #2ea043; /* Slightly brighter green on hover */
+    transform: scale(1.05); /* Subtle zoom effect */
+}
+
+input.form-control {
+    background-color: #0d1117;
+    color: #c9d1d9;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 10px;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+input.form-control:focus {
+    outline: none;
+    border-color: #58a6ff; /* Highlight border on focus */
+    box-shadow: 0 0 5px #58a6ff;
+}
+
+.d-grid {
+    margin-top: 20px;
+}
+
+footer {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #8b949e;
+}
+
+footer a {
+    color: #58a6ff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive design tweaks */
+@media (max-width: 768px) {
+    .container {
+        margin-top: 50px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .btn-primary {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+/* New Additional Styles */
+.card-header {
+    background-color: #21262d; /* Slightly darker background for headers */
+    color: #c9d1d9;
+    padding: 10px;
+    border-bottom: 1px solid #30363d;
+    border-radius: 15px 15px 0 0;
+}
+
+.card-footer {
+    background-color: #21262d;
+    color: #8b949e;
+    padding: 10px;
+    border-top: 1px solid #30363d;
+    border-radius: 0 0 15px 15px;
+    text-align: center;
+}
+
+.alert-success {
+    background-color: #28a745; /* Success green */
+    color: #fff;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.card .btn-secondary {
+    background-color: #444c56; /* Muted secondary button */
+    border: none;
+    padding: 8px 20px;
+    font-size: 1rem;
+    color: #c9d1d9;
+    border-radius: 30px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.card .btn-secondary:hover {
+    background-color: #586069; /* Slightly lighter secondary button on hover */
+}
