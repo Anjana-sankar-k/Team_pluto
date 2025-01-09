@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
-from main import fetch_neo_data  # Update main.py to export fetch_neo_data if necessary
+# from main import fetch_neo_data  # Update main.py to export fetch_neo_data if necessary
+from api.main import fetch_neo_data
 from gemini_api import GeminiAstronomyClient
 from utils import validate_date
 
