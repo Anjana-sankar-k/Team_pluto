@@ -1,6 +1,6 @@
-from nasa_api import fetch_neo_data
-from utils import validate_date
-from gemini_api import GeminiAstronomyClient  # Updated import
+from api.nasa_api import fetch_neo_data
+from api.utils import validate_date
+from api.gemini_api import GeminiAstronomyClient  # Updated import
 
 def main():
     print("🚀 Welcome to the Cool Space Facts Finder!")

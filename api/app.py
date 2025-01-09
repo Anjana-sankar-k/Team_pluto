@@ -1,9 +1,12 @@
 from flask import Flask, render_template, request
-from main import fetch_neo_data  # Update main.py to export fetch_neo_data if necessary
-from gemini_api import GeminiAstronomyClient
-from utils import validate_date
+# from main import fetch_neo_data  # Update main.py to export fetch_neo_data if necessary
+from api.main import fetch_neo_data
+from api.gemini_api import GeminiAstronomyClient
+from api.utils import validate_date
 
-app = Flask(__name__)  # Ensure 'static_folder' is set correctly if not standard
+app = Flask(__name__,
+    template_folder='../templates',  # Go up one directory to find templates
+    static_folder='../static' )  # Ensure 'static_folder' is set correctly if not standard
 
 
 @app.route("/", methods=["GET", "POST"])
