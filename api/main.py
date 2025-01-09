@@ -1,16 +1,16 @@
 from nasa_api import fetch_neo_data
-from gemini_api import fetch_celestial_data  # Hypothetical API call for Gemini
 from utils import validate_date
+from gemini_api import GeminiAstronomyClient  # Updated import
 
 def main():
-    print("Welcome to the Cool Space Facts Finder!")
+    print("🚀 Welcome to the Cool Space Facts Finder!")
     birth_date = input("Enter your birth date (YYYY-MM-DD): ")
     
     if not validate_date(birth_date):
         print("Invalid date format. Please use YYYY-MM-DD.")
         return
 
-    # Fetch NEO data from NASA API
+    # Fetch and interpret NEO data
     neo_data = fetch_neo_data(birth_date, birth_date)
     if "error" in neo_data:
         print(neo_data["error"])
@@ -28,14 +28,23 @@ def main():
                 print(f"  Hazardous: {'Yes' if neo['is_potentially_hazardous_asteroid'] else 'No'}")
                 print()
 
-    # Fetch Celestial Data from Gemini API (or other alternative)
-    celestial_data = fetch_celestial_data(birth_date)
-    if "error" in celestial_data:
-        print(celestial_data["error"])
-    else:
-        print(f"🌠 Celestial Event for {birth_date}:")
-        print(celestial_data.get("constellation", "No major celestial events observed."))
-        print(f"Fun fact: {celestial_data.get('fun_fact', 'It was a great time to stargaze!')}")
+    try:
+        client = GeminiAstronomyClient()  # Instantiate the client
+        
+        # Fetch Celestial Data using the already provided birth_date
+        celestial_data = client.fetch_celestial_data(birth_date)
+        
+        if "error" in celestial_data:
+            print(f"❌ Error: {celestial_data['error']}")
+        else:
+            print(f"\n🌠 Celestial Event for {birth_date}:")
+            print(celestial_data.get("constellation", "No major celestial events observed."))
+            print(f"Fun fact: {celestial_data.get('fun_fact', 'It was a great time to stargaze!')}")
+        
+    except KeyboardInterrupt:
+        print("\nProgram terminated by user. Goodbye! ✨")
+    except Exception as e:
+        print(f"\n❌ An unexpected error occurred: {str(e)}")
 
 if __name__ == "__main__":
     main()
